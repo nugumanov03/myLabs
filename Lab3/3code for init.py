@@ -1,4 +1,4 @@
-import func
+import func2 as func
 
 if __name__ == '__main__':
     print(func.toOunces(30))

@@ -3,8 +3,8 @@ import time
 
 pygame.init()
 
-x=1000
-y=1000
+x=800
+y=800
 screen=pygame.display.set_mode((x,y))
 
 WHITE=(255,255,255)
@@ -31,9 +31,12 @@ def rotate(surf, image, pos, originPos, angle):
     surf.blit(rotated_image, origin)
 
 
-background=pygame.image.load("clock.jpg")
-minute_hand=pygame.image.load("minute_hand.png")
-second_hand=pygame.image.load("second_hand.png")
+background=pygame.image.load("body.png")
+background = pygame.transform.scale(background,(x ,y))
+minute_hand=pygame.image.load("left.png")
+minute_hand = pygame.transform.scale(minute_hand,(x ,y))
+second_hand=pygame.image.load("right.png")
+second_hand=pygame.transform.scale(second_hand,(x ,y))
 seconds=-1
 minutes=-1
 
@@ -50,11 +53,11 @@ while running:
     seconds+=1
 
     if seconds%60==0:
-    
+
         minutes+=1
     screen.fill(WHITE)
 
-    screen.blit(background,(150,200))
+    screen.blit(background,(0,0))
 
     rotate(screen,second_hand,(560,495),(0,0),157-6*seconds)
 
